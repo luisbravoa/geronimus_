@@ -1,2 +1,23 @@
-<h1>Public#login</h1>
-<p>Find me in app/views/public/login.html.erb</p>
+<div id="login-container" class="row">
+
+	<div class="col-lg-6 col-xs-12 col-md-12 col-md-push-3">
+	<%= form_for(:user, :url => {:action => 'login'}, html: {class: ""}) do |f| %>
+		<!-- <form class="form-horizontal"> -->
+		  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <%= f.text_field "email_username", :class => "form-control" %>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <%= f.password_field :password, :class => "form-control" %>
+  </div>
+
+		  <div class="form-group">
+		    <div class="">
+		      <button type="submit" class="btn btn-default">Log in</button>
+		    </div>
+		  </div>
+		<!-- </form> -->
+		<% end %>
+	</div>
+</div>

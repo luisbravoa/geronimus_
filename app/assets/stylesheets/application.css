@@ -15,6 +15,11 @@
  *= require bootstrap
  */
 
+html,
+body {
+    height: 100%;
+}
+
 body {
     padding-top: 70px;
     font-family: 'Roboto Condensed', sans-serif;
@@ -23,17 +28,124 @@ body {
 }
 
 
-.navbar-inverse{
-	background-color: none;
-	border: none;
-	opacity: .8
+.btn {
+	border-radius: 0;
+}
+.btn-default, .form-control{
+	background: #000000;
+	color: #CCCCCC;
+	border-color: #222222;
+	border-radius: 0;
+}
+.btn-default:hover{
+	background: #FFFFFF;
+	color: #000000;
+	border-color: #222222;
+}
+/*
+.form-control::-webkit-input-placeholder { color: white; }
+.form-control:-moz-placeholder { color: white; }
+.form-control::-moz-placeholder { color: white; }
+.form-control:-ms-input-placeholder { color: white; }*/
+
+.navbar-inverse {
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    /*opacity: .9;*/
 }
 
-#index-title{
-	font-size: 120px;
+#app-container {
+    height: 100%;
+    z-index: 501;
 }
-#index-subtitle{
-	font-size: 100px;
-	font-style: normal;
-  font-weight: 300;
+
+/*INDEX*/
+#index-container {
+
+}
+
+#index-background {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    opacity: .3;
+    z-index: 0;
+}
+
+#index-background img {
+    width: 100%;
+}
+
+@media (max-width: 1000px) {
+    #index-background img {
+        width: 1200px;
+    }
+}
+
+#index-title {
+    font-size: 160px;
+}
+
+#index-subtitle {
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 300;
+}
+
+@keyframes cf4FadeInOut {
+    0% {
+        opacity: 1;
+    }
+    17% {
+        opacity: 1;
+    }
+    25% {
+        opacity: 0;
+    }
+    92% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+#index-background img {
+    animation-duration: 24s;
+    animation-iteration-count: infinite;
+    animation-name: cf4FadeInOut;
+    animation-timing-function: ease-in-out;
+    /*animation-direction: alternate;*/
+}
+
+#index-background img {
+    position: absolute;
+    left: 0;
+}
+
+#index-background img:nth-of-type(1) {
+    animation-delay: 18s;
+}
+
+#index-background img:nth-of-type(2) {
+    animation-delay: 12s;
+}
+
+#index-background img:nth-of-type(3) {
+    animation-delay: 6s;
+}
+
+#index-background img:nth-of-type(4) {
+    animation-delay: 0;
+}
+
+
+
+/*LOGIN*/
+#login-container{
+	/*width: 800px;*/
+	margin-left: auto;
+	margin-right: auto;
 }

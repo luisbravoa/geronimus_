@@ -1,9 +1,14 @@
 Rails.application.routes.draw do
+  get 'songs/index'
+
   get 'public/index'
 
   get 'public/login'
 
   get 'public/logut'
+  get 'public/sign_up'
+
+  match 'public/login', to: 'public#login', via: [:post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
