@@ -2,22 +2,30 @@ class PublicController < ApplicationController
   def index
   end
 
-  def login
-    puts params.inspect
+  def new
+    render("login")
+  end
 
-    if params.include?(:email_username)
-      @user = User.where([" username = ? OR email = ?", params['email_username'], params['email_username']]) if params['email_username']
-      puts @user
-      if @user
+  def create
+    if params.include?(:user)
+      user = User.where([" username = ? OR email = ?", params[:user][:email_username].downcase, params[:user][:email_username]]).first
+      if user && user.authenticate(params[:user][:password])
+        session[:user_id] = user.id
         redirect_to(:controller => 'songs', :action => 'index')
+      else
+        flash[:error] = "Incorrect username or password."
+        @email_username = params[:user][:email_username]
+        render("login")
       end
+    else
+      render("login")
     end
-
-
-
   end
 
-  def logut
+  def destroy
+    session.delete(:user_id)
+    redirect_to(:action => "index")
   end
+
 
 end

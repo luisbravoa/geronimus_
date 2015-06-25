@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
+  get 'users/create'
+
+  get 'users/update'
+
+  get 'users/edit'
+
+  get 'users/destroy'
+
+  get 'users/show'
+
+  get 'users/index'
+
   get 'songs/index'
 
   get 'public/index'
@@ -9,6 +23,23 @@ Rails.application.routes.draw do
   get 'public/sign_up'
 
   match 'public/login', to: 'public#login', via: [:post]
+
+  get    'login'   => 'public#new'
+  post   'login'   => 'public#create'
+  get 'logout'  => 'public#destroy'
+
+  get    'signup'   => 'users#new'
+  # post   'users#create'
+
+  # resources :users do
+  #   member do
+  #     get :delete
+  #   end
+  # end
+
+  root  'public#index'
+
+  match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
