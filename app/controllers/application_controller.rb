@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
       redirect_to(:controller => 'public', :action => 'login')
       return false # halts the before_action
     else
+      @user_id = session[:user_id];
       return true
     end
   end

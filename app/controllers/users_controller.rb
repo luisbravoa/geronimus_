@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      flash[:notice] = "User was created successfully!"
+      flash.now[:notice] = "User was created successfully!"
       puts flash[:notice]
       redirect_to(:action => 'index')
     else

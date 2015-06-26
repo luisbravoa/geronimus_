@@ -33,7 +33,7 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li>
+                    <!-- <li>
                         <a href="#">About</a>
                     </li>
                     <li>
@@ -41,11 +41,16 @@
                     </li>
                     <li>
                         <a href="#">Contact</a>
-                    </li>
+                    </li> -->
+                </ul>
+                <ul class="nav navbar-nav  navbar-right">
+                <% if !@user_id.nil? %>
                     <li>
                         <a href="/logout">Log out</a>
                     </li>
+                <% end %>
                 </ul>
+                <!-- <div class="navbar-form navbar-right">dsasd</div> -->
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -54,11 +59,11 @@
 
     <!-- Page Content -->
     <div class="container" id="app-contrainer">
-        <% if flash[:error] %>
-            <div id="flash-error"><%= flash[:error]%></div>
+        <% if flash.now[:error] %>
+            <div id="flash-error"><%= flash.now[:error]%></div>
         <% end %>
-        <% if flash[:notice] %>
-            <div id="flash-notice"><%= flash[:notice]%></div>
+        <% if flash.now[:notice] %>
+            <div id="flash-notice"><%= flash.now[:notice]%></div>
         <% end %>
     <%= yield %>
         

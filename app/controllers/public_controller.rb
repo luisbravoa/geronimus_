@@ -13,7 +13,7 @@ class PublicController < ApplicationController
         session[:user_id] = user.id
         redirect_to(:controller => 'songs', :action => 'index')
       else
-        flash[:error] = "Incorrect username or password."
+        flash.now[:error] = "Incorrect username or password."
         @email_username = params[:user][:email_username]
         render("login")
       end
