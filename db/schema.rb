@@ -11,19 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626184119) do
+ActiveRecord::Schema.define(version: 20150627174551) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
     t.integer  "artist_id",  limit: 4
+    t.integer  "user_id",    limit: 4
   end
 
   create_table "artists", force: :cascade do |t|
     t.string   "name",       limit: 255, null: false
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+    t.integer  "user_id",    limit: 4
   end
 
   create_table "songs", force: :cascade do |t|

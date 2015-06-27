@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
       return false # halts the before_action
     else
       @user_id = session[:user_id];
+      @user = User.find_by_id(@user_id);
       return true
     end
   end

@@ -37,6 +37,34 @@ Rails.application.routes.draw do
   #   end
   # end
 
+  scope '/songs' do
+    get '/' => 'songs#list'
+    post '/' => 'songs#create'
+    scope '/:id' do
+      get '/' => 'songs#show'
+      put '/' => 'songs#update'
+    end
+  end
+
+
+  scope '/albums' do
+    get '/' => 'albums#list'
+    post '/' => 'albums#create'
+    scope '/:id' do
+      get '/' => 'albums#show'
+      put '/' => 'albums#update'
+    end
+  end
+
+  scope '/artists' do
+    get '/' => 'artists#list'
+    post '/' => 'artists#create'
+    scope '/:id' do
+      get '/' => 'artists#show'
+      put '/' => 'artists#update'
+    end
+  end
+
   root  'public#index'
 
   match ':controller(/:action(/:id(.:format)))', :via => [:get, :post]
