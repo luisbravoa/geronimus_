@@ -1,0 +1,10 @@
+//= require jquery
+//= require jquery_ujs
+//= require turbolinks
+//*= require bootstrap
+//*= require angular.min.js
+//*= require angular-route.min.js
+//*= require player/controllers/Songs.js 
+//*= require player/controllers/Artists.js 
+//*= require player/controllers/Albums.js 
+//*= require player/app.js 

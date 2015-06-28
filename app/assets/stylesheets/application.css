@@ -27,6 +27,9 @@ body {
     color: #FFFFFF;
 }
 
+.container{
+    width: 100%;
+}
 
 .btn {
 	border-radius: 0;

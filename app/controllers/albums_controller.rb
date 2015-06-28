@@ -15,4 +15,5 @@ class AlbumsController < ApplicationController
   def json_config
     return :only =>[:id, :name]
   end
+  
 end

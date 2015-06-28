@@ -1,7 +1,7 @@
 require 'pathname'
 class SongsController < ApplicationController
 
-  layout false
+  layout "player"
 
   before_action :confirm_logged_in
 
