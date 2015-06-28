@@ -27,23 +27,26 @@ body {
     color: #FFFFFF;
 }
 
-.container{
+.container {
     width: 100%;
 }
 
 .btn {
-	border-radius: 0;
+    border-radius: 0;
 }
-.btn-default, .form-control{
-	background: rgba(0, 0, 0, 0.8);
-	color: #CCCCCC;
-	border-color: #222222;
-	border-radius: 0;
+
+.btn-default,
+.form-control {
+    background: rgba(0, 0, 0, 0.8);
+    color: #CCCCCC;
+    border-color: #222222;
+    border-radius: 0;
 }
-.btn-default:hover{
-	background: #FFFFFF;
-	color: #000000;
-	border-color: #222222;
+
+.btn-default:hover {
+    background: #FFFFFF;
+    color: #000000;
+    border-color: #222222;
 }
 /*
 .form-control::-webkit-input-placeholder { color: white; }
@@ -60,11 +63,9 @@ body {
     height: 100%;
     z-index: 501;
 }
-
 /*INDEX*/
-#index-container {
 
-}
+#index-container {}
 
 #index-background {
     position: fixed;
@@ -120,6 +121,7 @@ body {
     animation-name: cf4FadeInOut;
     animation-timing-function: ease-in-out;
     /*animation-direction: alternate;*/
+    
     z-index: 0;
 }
 
@@ -143,17 +145,17 @@ body {
 #index-background img:nth-of-type(4) {
     animation-delay: 0;
 }
-
-
-
 /*LOGIN*/
-#login-container{
-	/*width: 800px;*/
-	margin-left: auto;
-	margin-right: auto;
+
+#login-container {
+    /*width: 800px;*/
+    
+    margin-left: auto;
+    margin-right: auto;
 }
 
-#flash-error, #flash-notice{
+#flash-error,
+#flash-notice {
     width: 300px;
     margin-left: auto;
     margin-right: auto;
@@ -161,12 +163,41 @@ body {
     text-align: center;
     background: rgba(0, 0, 0, 0.8);
 }
-#flash-error{
+
+#flash-error {
     background: rgba(255, 0, 0, 0.5);
 }
-#flash-message{
+
+#flash-message {
     background-color: #000;
 }
-#form_error{
+
+#form_error {
     text-align: left;
+}
+/*player*/
+
+#player-side {
+    /*background-color: red;*/
+    width: 200px;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    bottom: 0;
+}
+
+#player-content {
+    background-color: #000;
+    position: absolute;
+    right: 0;
+    top: 50px;
+    width: calc(100% - 200px);
+    bottom: 0;
+    padding-top: 0px;
+    overflow: auto;
+}
+
+
+.table-hover > tbody > tr:hover{
+    color: #000;
 }

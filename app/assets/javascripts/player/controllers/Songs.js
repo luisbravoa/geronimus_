@@ -1,5 +1,9 @@
 angular.module('player.SongController', [])
-    .controller('SongController', ['$scope', function($scope) {
-        $scope.name = 'luis';
+    .controller('SongController', ['$scope', '$http', 'DataService',  function($scope, $http, DataService) {
+        DataService.getSongs(function(data){
+        	$scope.songs = data;
+        })
+
+
     }]);
 
