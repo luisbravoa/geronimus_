@@ -26,33 +26,16 @@ class SongsController < ApplicationController
     user = User.find_by_id(@user_id);
     uploaded_io = params[:file]
 
+    puts '==================='
+    puts params[:file].inspect
 
-    user_directory = File.join('public', 'songs', user.id.to_s)
+    params[:file].each do |file|
+      add_song(file, user)
+    end    
 
-    # create user directory if it does not extist
-    Dir.mkdir(File.join('public', 'songs', user.id.to_s), 0700) unless Dir.exists?(File.join('public', 'songs', user.id.to_s))
+    
 
-    file_name = uploaded_io.original_filename
-
-    file_path = File.join(user_directory, file_name)
-
-    ## change the name if it already exists
-    count = 1
-    while File.exists?(file_path) do
-        puts file_path
-        file_name = File.basename(uploaded_io.original_filename) + " (" + count.to_s + ")" + File.extname(uploaded_io.original_filename)
-        file_path = File.join(user_directory, file_name)
-        count += 1
-      end
-
-      # move file to user dir
-      File.open(file_path, 'wb') do |file|
-        file.write(uploaded_io.read)
-      end
-
-      user.add_song(file_name, get_metadata(file_path))
-
-      render "index"
+      render :nothing => true
 
     end
 
@@ -82,7 +65,35 @@ class SongsController < ApplicationController
     end
 
     def json_config
-    	return :include => {:album => {:only =>[:id, :name]}, :artist => {:only =>[:id, :name]}}, :only => [ :id, :title, :file ] 
+    	return :include => {:album => {:only =>[:id, :name]}, :artist => {:only =>[:id, :name]}}, :only => [ :id, :title, :file, :user_id ] 
+    end
+
+    def add_song (uploaded_io, user)
+
+      user_directory = File.join('public', 'songs', user.id.to_s)
+
+    # create user directory if it does not extist
+    Dir.mkdir(File.join('public', 'songs', user.id.to_s), 0700) unless Dir.exists?(File.join('public', 'songs', user.id.to_s))
+
+    file_name = uploaded_io.original_filename
+
+    file_path = File.join(user_directory, file_name)
+
+    ## change the name if it already exists
+    count = 1
+    while File.exists?(file_path) do
+        puts file_path
+        file_name = File.basename(uploaded_io.original_filename) + " (" + count.to_s + ")" + File.extname(uploaded_io.original_filename)
+        file_path = File.join(user_directory, file_name)
+        count += 1
+      end
+
+      # move file to user dir
+      File.open(file_path, 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+
+      user.add_song(file_name, get_metadata(file_path))  
     end
 
   end

@@ -7,7 +7,7 @@ angular.module('player.AppController', [])
 
     	$scope.play = function(song){
         	console.log(song);
-        	player.setSong('1/' + song.file);
+        	player.setSong(song.user_id + '/' + song.file);
         	player.play();
         }
     }]);

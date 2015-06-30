@@ -1,1 +1,6 @@
-artists.html
+<h1>Artists</h1>
+
+<div ng-repeat="artist in artists">
+	<div class="artist-img"><img ng-src="{{artist.img}}"></div>
+	<div class="artist-name">{{artist.name}}</div>
+</div>

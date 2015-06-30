@@ -1,15 +1,22 @@
 <h1>Songs</h1>
 <table class=" table table-hover">
-	<thead>
-		<tr>
-			<th>Name</th>
-			<th>Artist</th>
-			<th>Album</th>
-		</tr>
-	</thead>
-	<tr ng-repeat="song in songs" ng-click="play(song)">
-		<td>{{song.title}}</td>
-		<td>{{song.artist.name}}</td>
-		<td>{{song.album.name}}</td>
-	</tr>
-</table>        
+    <thead>
+        <tr>
+            <th> </th>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Album</th>
+        </tr>
+    </thead>
+    <tr ng-repeat="song in songs" ng-dblclick="play(song)">
+        <td>
+            <div class="player-list-actions">
+                <i class="fa fa-play" ng-click="play(song)"></i>
+                <i class="fa fa-plus" ng-click="play(song)"></i>
+            <div>
+        </td>
+        <td>{{song.title}}</td>
+        <td>{{song.artist.name}}</td>
+        <td>{{song.album.name}}</td>
+    </tr>
+</table>
