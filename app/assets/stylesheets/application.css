@@ -81,12 +81,6 @@ body {
     width: 100%;
 }
 
-@media (max-width: 1000px) {
-    #index-background img {
-        width: 1200px;
-    }
-}
-
 #index-title {
     font-size: 160px;
 }
@@ -95,6 +89,18 @@ body {
     font-size: 100px;
     font-style: normal;
     font-weight: 300;
+}
+
+@media (max-width: 800px) {
+    #index-background img {
+        width: 1200px;
+    }
+    #index-title {
+        font-size: 80px;
+    }
+    #index-subtitle {
+        font-size: 60px;
+    }
 }
 
 @keyframes cf4FadeInOut {
@@ -179,6 +185,7 @@ body {
 
 #player-side {
     /*background-color: red;*/
+    
     width: 200px;
     position: absolute;
     left: 0;
@@ -187,7 +194,7 @@ body {
     padding: 10px;
 }
 
-#player{
+#player {
     margin-left: auto;
     margin-right: auto;
 }
@@ -203,25 +210,48 @@ body {
     overflow: auto;
 }
 
-
-#player-content .table-hover > tbody > tr:hover{
+#player-content .table-hover > tbody > tr:hover {
     color: #FFFFFF;
     opacity: 1;
     background-color: transparent;
 }
 
-
-#player-content .table-hover > tbody > tr{
+#player-content .table-hover > tbody > tr {
     opacity: 0.7;
 }
 
-.player-list-actions{
+.player-list-actions {
     opacity: 0;
 }
-tr:hover .player-list-actions{
+
+tr:hover .player-list-actions {
     opacity: 1;
 }
 
-.player-list-actions i{
+.player-list-actions i {
     cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    #player-side {
+        left: 0;
+        bottom: 0;
+        height: 100px;
+        padding: 10px;
+        z-index: 100;
+        width: 100%;
+        top: calc( 100% - 100px);
+
+    }
+    #player-content {
+        background-color: #000;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 50px;
+        width: 100%;
+        bottom: 100px;
+        padding-top: 0px;
+        overflow: auto;
+    }
 }

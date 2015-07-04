@@ -8,6 +8,8 @@ angular.module('player.AppController', [])
     	$scope.play = function(song){
         	console.log(song);
         	player.setSong(song.user_id + '/' + song.file);
+        	player.setTitle(song.title);
+        	player.setArtist((song.artist && song.artist.name)? song.artist.name : '');
         	player.play();
         }
     }]);
