@@ -1,1 +1,9 @@
-albums.html
+<h1>Albums</h1>
+
+<div class="thumblist album" ng-repeat="album in albums">
+	<a ng-href="#/albums/{{album.id}}">
+		<div class="thumblist-img"><img ng-src="{{album.img}}"></div>
+		<div class="thumblist-name">{{album.name}}</div>
+		<div class="thumblist-subtitle">{{album.artist.name}}</div>
+	</a>
+</div>

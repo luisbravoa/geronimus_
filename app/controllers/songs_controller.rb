@@ -26,9 +26,6 @@ class SongsController < ApplicationController
     user = User.find_by_id(@user_id);
     uploaded_io = params[:file]
 
-    puts '==================='
-    puts params[:file].inspect
-
     params[:file].each do |file|
       add_song(file, user)
     end    

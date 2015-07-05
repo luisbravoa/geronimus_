@@ -13,7 +13,7 @@ class AlbumsController < ApplicationController
 
   private
   def json_config
-    return :only =>[:id, :name]
+    return :only =>[:id, :name, :artist], :include => {:artist => {:only =>[:id, :name]}}
   end
   
 end

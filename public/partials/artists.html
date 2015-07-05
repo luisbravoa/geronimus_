@@ -1,6 +1,8 @@
 <h1>Artists</h1>
 
-<div ng-repeat="artist in artists">
-	<div class="artist-img"><img ng-src="{{artist.img}}"></div>
-	<div class="artist-name">{{artist.name}}</div>
+<div class="thumblist artist" ng-repeat="artist in artists">
+	<a ng-href="#/artists/{{artist.id}}/songs">
+		<div class="thumblist-img"><img ng-src="{{artist.img}}"></div>
+		<div class="thumblist-name">{{artist.name}}</div>
+	</a>
 </div>

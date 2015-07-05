@@ -40,6 +40,7 @@ class User < ActiveRecord::Base
     		album = Album.new
     		album.name = metadata.album
     		self.albums << album
+        artist.albums << album if !artist.nil?
     		# album.save
     	end
     	song.album = album 
